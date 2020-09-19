@@ -8,11 +8,19 @@ class GalleryItem extends Component {
   render() {
     return (
       <div>
-
-          <img src ={`${this.props.image.path}`} width="100px" height="100px"/>
-          <p>{this.props.image.description}</p>
-
-
+        <table>
+          <tr>
+            <td>
+              <img src ={`${this.props.image.path}`} width="200px" height="200px" alt={`${this.props.image.title}`}/>
+            </td>
+            <td>
+            <button>Love It!</button>
+            </td>
+            <td>
+            <p>Love Count: {this.props.image.loveCount}</p>
+            </td>
+          </tr>
+        </table>
       
           
       </div>

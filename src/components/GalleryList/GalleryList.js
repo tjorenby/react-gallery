@@ -33,7 +33,6 @@ class GalleryList extends Component {
     return (
       <div>
         <h1>Gallery List</h1>
-        <ul>
           {this.state.images.map(image =>
             
             <GalleryItem
@@ -42,8 +41,6 @@ class GalleryList extends Component {
             />
              
             )}
-        
-        </ul>
       </div>
     );
   }
