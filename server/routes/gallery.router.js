@@ -1,4 +1,5 @@
 const express = require('express');
+const { prependOnceListener } = require('../modules/pool.js');
 const router = express.Router();
 const pool = require('../modules/pool.js');
 
@@ -13,6 +14,23 @@ router.get('/', (req,res) => {
         })
         .catch(error => {
             console.log(`Error making Database query: ${sqlText}`, error);
+            res.sendStatus(500);
+        })
+})
+
+// PUT route
+
+router.put('/:id', (req,res) => {
+    let imageId = req.params.id;
+    const sqlText = `UPDATE "gallery" SET "loveCount" = "loveCount" + 1 WHERE "id" = $1;`;
+
+    pool.query(sqlText, [imageId])
+        .then(response => {
+            console.log('updated loveCount:', response);
+            res.sendStatus(200);
+        })
+        .catch(err => {
+            console.log(`Error making db query: ${sqlText}`, err);
             res.sendStatus(500);
         })
 })

@@ -5,7 +5,8 @@ import axios from 'axios';
 class GalleryList extends Component {
 
   state = {
-    images: []
+    images: [],
+    newLoveCount: ''
   }
   
   componentDidMount = () => {
@@ -29,6 +30,28 @@ class GalleryList extends Component {
 
   };
 
+  updateLoveCount = (loveCount, id) => {
+    console.log('in updateLoveCount');
+    console.log('loveCount is:', loveCount);
+    let newLoveCount = Number(loveCount) +1;
+    console.log('newLoveCount is:', newLoveCount);
+    let imageId = id;
+    this.setState({
+      newLoveCount: newLoveCount
+    });
+
+    axios({
+      method: 'PUT',
+      url: `/gallery/${imageId}`,
+      data: newLoveCount
+    }).then(response =>{
+      console.log('back from PUT with:', response);
+    }).catch(err =>{
+      console.log('error with PUT', err);
+    });
+
+  }
+
   render() {
     return (
       <div>
@@ -38,6 +61,7 @@ class GalleryList extends Component {
             <GalleryItem
               key={image.id}
               image={image}
+              updateLoveCount ={this.updateLoveCount}
             />
              
             )}
