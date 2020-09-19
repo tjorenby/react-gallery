@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import GalleryList from '../GalleryList/GalleryList';
 import axios from 'axios';
+import GalleryList from '../GalleryList/GalleryList'
+
 
 
 class App extends Component {
@@ -12,13 +13,13 @@ class App extends Component {
 
   componentDidMount = () => {
     console.log('componentDidMount is ready');
-    this.getImages();
+    this.getGallery();
   }
 
-  getImages = () => {
+  getGallery = () => {
     axios({
       method: 'GET',
-      url: '/images'
+      url: '/gallery'
     }).then(response => {
       console.log('back from GET with:', response);
       console.log('response.data is:', response.data);
@@ -29,8 +30,10 @@ class App extends Component {
       console.log('GET error!', err);
     });
 
-  }
+  };
+  
   render() {
+    console.log('rendering...')
     return (
       <div className="App">
         <header className="App-header">

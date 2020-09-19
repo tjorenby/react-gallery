@@ -5,7 +5,7 @@ class GalleryItem extends Component {
   render() {
     return (
       <div>
-        <img src="images/goat_small.jpg"/>
+        <h2>Gallery Images Displayed Here</h2>
       </div>
     );
   }

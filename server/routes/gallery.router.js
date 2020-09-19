@@ -4,12 +4,12 @@ const pool = require('../modules/pool.js');
 
 
 // GET route
-router.get('/images', (req,res) => {
-    const sqlText = `SELECT * FROM "images" ORDER BY "id", "title", "description", "path" DESC;`;
+router.get('/', (req,res) => {
+    const sqlText = `SELECT * FROM gallery ORDER BY title, description, path DESC;`;
     pool.query(sqlText)
         .then(result => {
             console.log('Got stuff back from Database', result);
-            res.send(results.rows);
+            res.send(result.rows);
         })
         .catch(error => {
             console.log(`Error making Database query: ${sqlText}`, error);
