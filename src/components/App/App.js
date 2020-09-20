@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 //import axios from 'axios';
 import GalleryList from '../GalleryList/GalleryList'
+//import ReactDOM from 'react-dom';
 
 
 

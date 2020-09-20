@@ -1,36 +1,36 @@
 //import axios from 'axios';
 import React, { Component } from 'react';
+import './GalleryItem.css';
+
 
 
 class GalleryItem extends Component {
   
   state = {
-    newLoveCount: ''
+    newLoveCount: '',
+    isHovered: false,
+    MouseOver: true,
+    render: ''
 
   }
 
   render() {
     return (
-      <div>
-        <table>
-          <tbody>
-            <tr>
-              <td>
-                <img src ={`${this.props.image.path}`} width="200px" height="200px" alt={`${this.props.image.title}`}/>
-              </td>
-              <td>
-              <button onClick={() =>{this.props.updateLoveCount(this.props.image.loveCount, this.props.image.id)}}>Love It!</button>
-              </td>
-              <td>
-              <p>Love Count: {this.props.image.loveCount}</p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      
-          
-      </div>
-    );
+        <td>
+          <div className="container">
+            <img 
+            src = {this.props.item.path}
+            alt={`${this.props.item.title}`}
+            className="image"
+            />
+            <div class="overlay">
+              <div class="text">{this.props.item.description}</div>
+            </div>
+          </div>
+          <p>Love Count: {this.props.item.loveCount}</p>
+          <button onClick={() =>{this.props.updateLoveCount(this.props.item.loveCount, this.props.item.id)}}>Love It!</button>
+        </td>
+);      
   }
 }
 

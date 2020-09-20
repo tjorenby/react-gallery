@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import GalleryItem from '../GalleryItem/GalleryItem'
 import axios from 'axios';
+//import ReactDOM from 'react-dom';
 
 class GalleryList extends Component {
 
   state = {
-    images: [],
+    items: [],
     loveCount: ''
   }
   
@@ -22,7 +23,7 @@ class GalleryList extends Component {
       console.log('back from GET with:', response);
       console.log('response.data is:', response.data);
       this.setState({
-        images: response.data
+        items: response.data
       });
     }).catch(err =>{
       console.log('GET error!', err);
@@ -55,16 +56,21 @@ class GalleryList extends Component {
     return (
       <div>
         <h1>Gallery List</h1>
-          {this.state.images.map(image =>
-            
-            <GalleryItem
-              key={image.id}
-              image={image}
-              updateLoveCount={this.updateLoveCount}
-              loveCount={this.state.loveCount}
-            />
-             
-            )}
+          <table>
+              <tbody>
+                <tr>
+                  {this.state.items.map(item =>
+                    <GalleryItem
+                      key={item.id}
+                      item={item}
+                      image={item.path}
+                      updateLoveCount={this.updateLoveCount}
+                      loveCount={this.state.loveCount}
+                    /> 
+                    )};
+                </tr> 
+              </tbody>
+          </table>
       </div>
     );
   }
