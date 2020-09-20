@@ -6,7 +6,7 @@ class GalleryList extends Component {
 
   state = {
     images: [],
-    newLoveCount: ''
+    loveCount: ''
   }
   
   componentDidMount = () => {
@@ -32,20 +32,19 @@ class GalleryList extends Component {
 
   updateLoveCount = (loveCount, id) => {
     console.log('in updateLoveCount');
-    console.log('loveCount is:', loveCount);
-    let newLoveCount = Number(loveCount) +1;
-    console.log('newLoveCount is:', newLoveCount);
+    console.log('newLoveCount is:', loveCount);
     let imageId = id;
     this.setState({
-      newLoveCount: newLoveCount
+      loveCount: loveCount
     });
 
     axios({
       method: 'PUT',
       url: `/gallery/${imageId}`,
-      data: newLoveCount
+      data: loveCount
     }).then(response =>{
       console.log('back from PUT with:', response);
+      this.getGallery();
     }).catch(err =>{
       console.log('error with PUT', err);
     });
@@ -61,7 +60,8 @@ class GalleryList extends Component {
             <GalleryItem
               key={image.id}
               image={image}
-              updateLoveCount ={this.updateLoveCount}
+              updateLoveCount={this.updateLoveCount}
+              loveCount={this.state.loveCount}
             />
              
             )}

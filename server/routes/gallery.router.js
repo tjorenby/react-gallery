@@ -26,7 +26,7 @@ router.put('/:id', (req,res) => {
 
     pool.query(sqlText, [imageId])
         .then(response => {
-            console.log('updated loveCount:', response);
+            console.log('updated loveCount:', imageId, response);
             res.sendStatus(200);
         })
         .catch(err => {
