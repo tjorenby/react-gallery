@@ -1,50 +1,75 @@
 
 .container {
     position: relative;
+    display: inline-block;
     width: 50%;
+    width: 200px;
+    height: 300px;
+    margin: 3px;
   }
 
-.container:hover .overlay {
-    opacity: 1;
-  }
+
 
 
  .image{
     width: 200px;
     height: 200px; 
-    display: inline-block;
+    display: inline-block; 
     background-size: cover;
     background-position: center;
     border: 1px solid #000;
     overflow: hidden;
 } 
 
-.text {
-    color: hotpink;
-    font-size: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%; 
-    bottom: 50%;
-    right: 50%; 
-    width: 100px; 
-    padding-left:100px;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
 
   .overlay {
-    display: inline-block;
+    /* display: inline-block; 
     background-size: cover;
     background-position: center;
     border: 1px solid #000;
     overflow: hidden;
     opacity: 0;
     transition: .5s ease;
-    background-color: #008CBA;
+    background-color: #008CBA; */
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 201px;
+  width: 201px;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+
   }
+
+  .container:hover .overlay {
+    opacity: .7;
+    
+
+  }
+
+  .text {
+    color: hotpink;
+    font-size: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    bottom: 50%;
+    right: 50%; 
+    width: 100px; 
+    padding-left:25px;
+    padding-right:25px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
 
 
 

@@ -9,7 +9,7 @@ To Do's
     --Database--
         [X] db name: react_gallery
         [X] properties: id, title, description, path
-        [] add images
+        [X] add images
 
 
     --Component Routing--
@@ -19,6 +19,12 @@ To Do's
             [X]js config'd
 
 -- BASE MODE --
+
+    [X] Gallery Items render to DOM
+    [X] 'Like' Button increases 'like' count
+    [X] 'like' count displayed on DOM
+    [X] Item discription is displayed on an event change
+
 
 
 

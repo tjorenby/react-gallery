@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import GalleryItem from '../GalleryItem/GalleryItem'
 import axios from 'axios';
-//import ReactDOM from 'react-dom';
+import './GalleryList.css';
 
 class GalleryList extends Component {
 
@@ -54,12 +54,11 @@ class GalleryList extends Component {
 
   render() {
     return (
-      <div>
+      <div ClassName="Gallery">
         <h1>Gallery List</h1>
-          <table>
-              <tbody>
-                <tr>
+          <div className="Gallery-list">
                   {this.state.items.map(item =>
+
                     <GalleryItem
                       key={item.id}
                       item={item}
@@ -67,10 +66,9 @@ class GalleryList extends Component {
                       updateLoveCount={this.updateLoveCount}
                       loveCount={this.state.loveCount}
                     /> 
-                    )};
-                </tr> 
-              </tbody>
-          </table>
+                  
+               )};
+          </div>    
       </div>
     );
   }

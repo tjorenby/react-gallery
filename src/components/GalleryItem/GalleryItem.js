@@ -16,21 +16,27 @@ class GalleryItem extends Component {
 
   render() {
     return (
-        <td>
-          <div className="container">
-            <img 
-            src = {this.props.item.path}
-            alt={`${this.props.item.title}`}
-            className="image"
-            />
-            <div class="overlay">
-              <div class="text">{this.props.item.description}</div>
-            </div>
-          </div>
-          <p>Love Count: {this.props.item.loveCount}</p>
-          <button onClick={() =>{this.props.updateLoveCount(this.props.item.loveCount, this.props.item.id)}}>Love It!</button>
-        </td>
-);      
+      <>
+              
+                <div className="container">
+                  <img 
+                  src = {this.props.item.path}
+                  alt={`${this.props.item.title}`}
+                  className="image"
+                  />
+                 
+                  <div class="overlay">
+                    <div class="text">{this.props.item.description}</div>
+                  </div>
+                  
+                
+                <p>Love Count: {this.props.item.loveCount}</p>
+                
+                <button onClick={() =>{this.props.updateLoveCount(this.props.item.loveCount, this.props.item.id)}}>Love It!</button>
+               </div>
+        
+      </>
+); 
   }
 }
 
