@@ -12,14 +12,14 @@ class GalleryList extends Component {
   updateLoveCount = (loveCount, id) => {
     console.log('in updateLoveCount');
     console.log('newLoveCount is:', loveCount);
-    let imageId = id;
+    let itemId = id;
     this.setState({
       loveCount: loveCount
     });
 
     axios({
       method: 'PUT',
-      url: `/gallery/${imageId}`,
+      url: `/gallery/${itemId}`,
       data: loveCount
     }).then(response =>{
       console.log('back from PUT with:', response);
@@ -29,22 +29,18 @@ class GalleryList extends Component {
     });
   }
 
-  deleteItem = (songId) => {
+  deleteItem = (itemId) => {
     console.log('in deleteItem');
     axios({
       method:'DELETE',
-      url:`/gallery/${songId}`
+      url:`/gallery/${itemId}`
     }).then(response =>{
-      console.log('Deleted', songId);
+      console.log('Deleted', itemId);
       this.props.getGallery();
     }).catch(err => {
       console.log('DELETE error', err);
     })
-
-
   }
-
-  
 
   render() {
     return (
