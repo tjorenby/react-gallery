@@ -6,6 +6,10 @@ import ImageForm from '../ImageForm/ImageForm'
 
 class App extends Component {
 
+  state = {
+    items: [],
+  }
+
   addItem = (newItem) => {
     console.log('in addItem:', newItem);
     axios({
@@ -14,10 +18,39 @@ class App extends Component {
       data: newItem
     }).then(response => {
       console.log('back from POST with:', response);
+      this.setState({
+        items:[
+          ...this.state.items,
+          newItem
+        ]
+      });
+      this.getGallery();
     }).catch(err =>{
       console.log('error with POST', err);
     });
   }
+
+  ///////
+  componentDidMount = () => {
+    console.log('componentDidMount is ready');
+    this.getGallery();
+  }
+
+  getGallery = () => {
+    axios({
+      method: 'GET',
+      url: '/gallery'
+    }).then(response => {
+      console.log('back from GET with:', response);
+      console.log('response.data is:', response.data);
+      this.setState({
+        items: response.data
+      });
+    }).catch(err =>{
+      console.log('GET error!', err);
+    });
+
+  };
 
   render() {
     console.log('rendering...')
@@ -27,7 +60,10 @@ class App extends Component {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <ImageForm addItem={this.addItem}/>
-        <GalleryList/>
+        <GalleryList 
+          getGallery={this.getGallery}
+          items={this.state.items}
+          />
       </div>
     );
   }
