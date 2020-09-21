@@ -29,8 +29,19 @@ class GalleryList extends Component {
     });
   }
 
-  deleteItem = () => {
+  deleteItem = (songId) => {
     console.log('in deleteItem');
+    axios({
+      method:'DELETE',
+      url:`/gallery/${songId}`
+    }).then(response =>{
+      console.log('Deleted', songId);
+      this.props.getGallery();
+    }).catch(err => {
+      console.log('DELETE error', err);
+    })
+
+
   }
 
   
