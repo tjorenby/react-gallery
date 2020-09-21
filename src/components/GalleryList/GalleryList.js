@@ -10,6 +10,7 @@ class GalleryList extends Component {
     loveCount: ''
   }
   
+  // Updates loveCount and sends that data to the db. The Gallery is then re-rendered, displaying the updated loveCount
   updateLoveCount = (loveCount, id) => {
     console.log('in updateLoveCount');
     console.log('newLoveCount is:', loveCount);
@@ -24,12 +25,13 @@ class GalleryList extends Component {
       data: loveCount
     }).then(response =>{
       console.log('back from PUT with:', response);
-      this.props.getGallery();
+      this.props.getGallery(); // re-renders gallery
     }).catch(err =>{
       console.log('error with PUT', err);
     });
   }
 
+  // Deletes items from db by accessing their unique id. Re-renders gallery. 
   deleteItem = (itemId) => {
     console.log('in deleteItem');
     axios({
@@ -37,7 +39,7 @@ class GalleryList extends Component {
       url:`/gallery/${itemId}`
     }).then(response =>{
       console.log('Deleted', itemId);
-      this.props.getGallery();
+      this.props.getGallery(); // re-renders the gallery
     }).catch(err => {
       console.log('DELETE error', err);
     })
@@ -46,7 +48,7 @@ class GalleryList extends Component {
   render() {
     return (
       <div ClassName="Gallery">
-        <h1>Gallery List</h1>
+        <h1>Images</h1>
           <div className="Gallery-list">
                   {this.props.items.map(item =>
 
@@ -54,10 +56,10 @@ class GalleryList extends Component {
                       key={item.id}
                       item={item}
                       image={item.path}
-                      updateLoveCount={this.updateLoveCount}
+                      updateLoveCount={this.updateLoveCount} 
                       loveCount={this.state.loveCount}
                       deleteItem={this.deleteItem}
-                    />  
+                    />  // using .map() to loop through the items array (in App.js) Sending the above props to GalleryItem to be used for functionality
                )}
           </div>    
       </div>

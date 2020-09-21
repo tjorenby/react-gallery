@@ -4,7 +4,7 @@ const router = express.Router();
 const pool = require('../modules/pool.js');
 
 
-// GET route
+// GET route for getGallery
 router.get('/', (req,res) => {
     const sqlText = `SELECT * FROM gallery ORDER BY title, description, path DESC;`;
     pool.query(sqlText)
@@ -18,8 +18,7 @@ router.get('/', (req,res) => {
         })
 })
 
-// PUT route
-
+// PUT route for updateLoveCount
 router.put('/:id', (req,res) => {
     let imageId = req.params.id;
     const sqlText = `UPDATE "gallery" SET "loveCount" = "loveCount" + 1 WHERE "id" = $1;`;
@@ -36,7 +35,6 @@ router.put('/:id', (req,res) => {
 })
 
 // POST route for addItem
-
 router.post('/', (req,res) => {
     const newItem = req.body
     const sqlText = `INSERT INTO "gallery" ("title", "description", "path", "loveCount")
@@ -53,7 +51,6 @@ router.post('/', (req,res) => {
 })
 
 // DELETE route for deleteItem
-
 router.delete('/:id', (req,res) =>{
     let reqId = req.params.id;
     console.log('DELETE request for id:', reqId);

@@ -40,7 +40,7 @@ To Do's
         [X]Server-side
             [X]Axios DELETE route
 
-    [] Styling with Material UI                    
+    [X] Styling with Material UI                    
 
 
 

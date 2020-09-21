@@ -17,9 +17,11 @@ class GalleryItem extends Component {
             />
             
             <div className="overlay">
-              <div className="text">{this.props.item.description}</div>
+              <div className="text">
+                {this.props.item.description}
+              </div>
             </div>
-          </div>
+          </div>{/* This section displays the image and allows for the image description to be displayed on hover. Hover function and styling done in css file */}
             
           <p>Love Count: {this.props.item.loveCount}</p>
 
@@ -27,12 +29,10 @@ class GalleryItem extends Component {
             <Button color="primary" onClick={() =>{this.props.updateLoveCount(this.props.item.loveCount, this.props.item.id)}}>Love It!</Button>
 
             <Button color="secondary" onClick={() => {this.props.deleteItem(this.props.item.id)}}>Delete This!</Button>
-          </div>
-
+          </div> {/* Minimal styling done using Material UI */}
         </div>
-
       </>
-); 
+    ); 
   }
 }
 
