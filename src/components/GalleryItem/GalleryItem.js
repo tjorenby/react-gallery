@@ -30,8 +30,10 @@ class GalleryItem extends Component {
                   
                 
                 <p>Love Count: {this.props.item.loveCount}</p>
-                
+                <div>
                 <button onClick={() =>{this.props.updateLoveCount(this.props.item.loveCount, this.props.item.id)}}>Love It!</button>
+                <button onClick={() => {this.props.deleteItem(this.props.item.id)}}>Delete This!</button>
+                </div>
                </div>
         
       </>

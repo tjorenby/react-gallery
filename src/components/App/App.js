@@ -30,7 +30,7 @@ class App extends Component {
     });
   }
 
-  ///////
+
   componentDidMount = () => {
     console.log('componentDidMount is ready');
     this.getGallery();

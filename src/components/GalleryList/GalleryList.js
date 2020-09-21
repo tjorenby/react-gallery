@@ -9,8 +9,6 @@ class GalleryList extends Component {
     loveCount: ''
   }
   
-  
-
   updateLoveCount = (loveCount, id) => {
     console.log('in updateLoveCount');
     console.log('newLoveCount is:', loveCount);
@@ -29,7 +27,10 @@ class GalleryList extends Component {
     }).catch(err =>{
       console.log('error with PUT', err);
     });
+  }
 
+  deleteItem = () => {
+    console.log('in deleteItem');
   }
 
   
@@ -47,8 +48,8 @@ class GalleryList extends Component {
                       image={item.path}
                       updateLoveCount={this.updateLoveCount}
                       loveCount={this.state.loveCount}
-                    /> 
-                  
+                      deleteItem={this.deleteItem}
+                    />  
                )};
           </div>    
       </div>
