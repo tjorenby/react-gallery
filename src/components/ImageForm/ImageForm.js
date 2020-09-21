@@ -6,7 +6,8 @@ class ImageForm extends Component {
     state = {
             newTitle: '',
             newDescription: '',
-            newPath: ''
+            newPath: '',
+            newLoveCount: 0
 
         }
 
