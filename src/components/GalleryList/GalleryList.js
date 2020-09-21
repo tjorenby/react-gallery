@@ -52,6 +52,8 @@ class GalleryList extends Component {
 
   }
 
+  
+
   render() {
     return (
       <div ClassName="Gallery">

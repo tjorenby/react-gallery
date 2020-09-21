@@ -25,6 +25,24 @@ To Do's
     [X] 'like' count displayed on DOM
     [X] Item discription is displayed on an event change
 
+-- STRETCH MODE --
+
+    [X] Render items from DB
+    [] User Form That allows users to POST to db
+        []Client Side
+            []Component Set Up
+            []Axios Post Route
+        []Server-side 
+            [] POST route
+    [] DELETE gallery item
+        []Client Side
+            []Delete Button on DOM
+            []Axios Delete Route
+        []Serer-side
+            []Axios DELETE route
+
+    [] Styling with Material UI                    
+
 
 
 

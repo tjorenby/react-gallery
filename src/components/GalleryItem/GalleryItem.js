@@ -1,4 +1,3 @@
-//import axios from 'axios';
 import React, { Component } from 'react';
 import './GalleryItem.css';
 
@@ -25,8 +24,8 @@ class GalleryItem extends Component {
                   className="image"
                   />
                  
-                  <div class="overlay">
-                    <div class="text">{this.props.item.description}</div>
+                  <div className="overlay">
+                    <div className="text">{this.props.item.description}</div>
                   </div>
                   
                 
