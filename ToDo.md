@@ -28,18 +28,17 @@ To Do's
 -- STRETCH MODE --
 
     [X] Render items from DB
-    [] User Form That allows users to POST to db
-        []Client Side
-            []Component Set Up
-            []Axios Post Route
-        []Server-side 
-            [] POST route
-    [] DELETE gallery item
-        []Client Side
-            []Delete Button on DOM
-            []Axios Delete Route
-        []Serer-side
-            []Axios DELETE route
+    [X] User Form That allows users to POST to db
+        [X]Client Side
+            [X]Component Set Up
+            [X]Axios Post Route
+        [X]Server-side 
+            [X] DELETE gallery item
+        [X]Client Side
+            [X]Delete Button on DOM
+            [X]Axios Delete Route
+        [X]Server-side
+            [X]Axios DELETE route
 
     [] Styling with Material UI                    
 
