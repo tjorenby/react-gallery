@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import GalleryItem from '../GalleryItem/GalleryItem'
 import axios from 'axios';
 import './GalleryList.css';
+import 'fontsource-roboto';
 
 class GalleryList extends Component {
 
@@ -57,7 +58,7 @@ class GalleryList extends Component {
                       loveCount={this.state.loveCount}
                       deleteItem={this.deleteItem}
                     />  
-               )};
+               )}
           </div>    
       </div>
     );
