@@ -33,8 +33,6 @@ class ImageForm extends Component {
         });
     }
 
-
-
     render(){
         console.log('submitting:', this.state.newTitle, ':',this.state.newDescription, ':', this.state.newPath);
         return(
@@ -63,10 +61,6 @@ class ImageForm extends Component {
                     placeholder="Image URL"
                 />
                 <input type="submit" value="submit"/>
-
-            
-
-
             </form>
             </>
         );

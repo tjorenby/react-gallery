@@ -9,8 +9,6 @@ class GalleryList extends Component {
     loveCount: ''
   }
   
-  
-
   updateLoveCount = (loveCount, id) => {
     console.log('in updateLoveCount');
     console.log('newLoveCount is:', loveCount);
@@ -29,6 +27,20 @@ class GalleryList extends Component {
     }).catch(err =>{
       console.log('error with PUT', err);
     });
+  }
+
+  deleteItem = (songId) => {
+    console.log('in deleteItem');
+    axios({
+      method:'DELETE',
+      url:`/gallery/${songId}`
+    }).then(response =>{
+      console.log('Deleted', songId);
+      this.props.getGallery();
+    }).catch(err => {
+      console.log('DELETE error', err);
+    })
+
 
   }
 
@@ -47,8 +59,8 @@ class GalleryList extends Component {
                       image={item.path}
                       updateLoveCount={this.updateLoveCount}
                       loveCount={this.state.loveCount}
-                    /> 
-                  
+                      deleteItem={this.deleteItem}
+                    />  
                )};
           </div>    
       </div>
