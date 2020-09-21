@@ -6,30 +6,10 @@ import './GalleryList.css';
 class GalleryList extends Component {
 
   state = {
-    items: [],
     loveCount: ''
   }
   
-  componentDidMount = () => {
-    console.log('componentDidMount is ready');
-    this.getGallery();
-  }
-
-  getGallery = () => {
-    axios({
-      method: 'GET',
-      url: '/gallery'
-    }).then(response => {
-      console.log('back from GET with:', response);
-      console.log('response.data is:', response.data);
-      this.setState({
-        items: response.data
-      });
-    }).catch(err =>{
-      console.log('GET error!', err);
-    });
-
-  };
+  
 
   updateLoveCount = (loveCount, id) => {
     console.log('in updateLoveCount');
@@ -45,7 +25,7 @@ class GalleryList extends Component {
       data: loveCount
     }).then(response =>{
       console.log('back from PUT with:', response);
-      this.getGallery();
+      this.props.getGallery();
     }).catch(err =>{
       console.log('error with PUT', err);
     });
@@ -59,7 +39,7 @@ class GalleryList extends Component {
       <div ClassName="Gallery">
         <h1>Gallery List</h1>
           <div className="Gallery-list">
-                  {this.state.items.map(item =>
+                  {this.props.items.map(item =>
 
                     <GalleryItem
                       key={item.id}

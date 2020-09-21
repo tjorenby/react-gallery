@@ -35,6 +35,23 @@ router.put('/:id', (req,res) => {
         })
 })
 
+// POST route for addItem
+
+router.post('/', (req,res) => {
+    const newItem = req.body
+    const sqlText = `INSERT INTO "gallery" ("title", "description", "path", "loveCount")
+    VALUES ($1, $2, $3, $4);`;
+    
+    pool.query(sqlText, [newItem.newTitle, newItem.newDescription, newItem.newPath, newItem.newLoveCount])
+        .then(result => {
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log(`Error making database query ${sqlText}`, error);
+            res.sendStatus(500);
+        });
+})
+
 module.exports = router;
 
 
