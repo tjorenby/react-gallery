@@ -3,6 +3,7 @@ import './App.css';
 import axios from 'axios';
 import GalleryList from '../GalleryList/GalleryList'
 import ImageForm from '../ImageForm/ImageForm'
+import 'fontsource-roboto';
 
 class App extends Component {
 
@@ -60,10 +61,11 @@ class App extends Component {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <ImageForm addItem={this.addItem}/>
+        
         <GalleryList 
           getGallery={this.getGallery}
           items={this.state.items}
-          />
+        />
       </div>
     );
   }
